@@ -1,3 +1,5 @@
+import Graph from 'src/Graph/Graph';
+
 export interface IStoreState {
-  dummyState: number;
+  gameBoard: Graph;
 };

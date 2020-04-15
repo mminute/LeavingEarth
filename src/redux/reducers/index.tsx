@@ -5,8 +5,8 @@ export interface IDummyAction { type: typeof DUMMY_INCREMENT };
 
 export function dummyReducer(state: IStoreState, action: IDummyAction) {
   switch (action.type) {
-    case DUMMY_INCREMENT:
-      return { ...state, dummyState: state.dummyState + 1 };
+    // case DUMMY_INCREMENT:
+    //   return { ...state, dummyState: state.dummyState + 1 };
     default:
       return state;
   }
