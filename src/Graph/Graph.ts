@@ -1,8 +1,8 @@
 // Based on https://github.com/codenameyau/graph.js
-interface INeighbor { [k: string]: number };
-interface INeighbors { [k: string]: INeighbor };
+export interface INeighbor { [k: string]: number | null };
+export interface INeighbors { [k: string]: INeighbor };
 
-class Graph {
+export class Graph {
   // The Graph looks like:
   // { nodeName: { neighbor1: weight, neighbor2: weight } }
   private graph: INeighbors;
@@ -43,7 +43,7 @@ class Graph {
     });
   }
 
-  private addEdge(vertex: string, neighbor: string, weight: number) {
+  private addEdge(vertex: string, neighbor: string, weight: number | null) {
     this.graph[vertex][neighbor] = weight;
   }
 };

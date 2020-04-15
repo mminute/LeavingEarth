@@ -1,18 +1,15 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
+import logo from './logo.svg';
+import { IStoreState } from './redux/types/index';
 import Graph from './Graph/Graph';
 
-import logo from './logo.svg';
+interface IProps { gameBoard: Graph };
 
-class App extends React.Component {
+class App extends React.Component<IProps> {
   public render() {
-    const gameBoard = new Graph({
-        'A': { 'B': 0, 'C': 0 },
-        'B': { 'A': 0, 'C': 1 },
-        'C': { 'A': 0, 'B': 1 },
-      });
-
-      window.console.log(gameBoard.getGraph());
+    window.console.log('App connected to store', this.props.gameBoard);
 
     return (
       <div className="App">
@@ -28,4 +25,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps({ gameBoard }: IStoreState) {
+  return {
+    gameBoard,
+  }
+}
+
+export default connect(mapStateToProps)(App);
